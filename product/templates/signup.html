@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block form %}
+<div class="form-section">
+<h2 class="try">Sign Up</h2>
+  <form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+     <div class="form-group">
+  <label>username </label>
+  <input type="text" name="username" id="username">
+  </div>
+      <div class="form-group">
+  <label>Email </label>
+  <input type="text" name="email" id="email">
+  </div>
+  <div class="form-group">
+  <label>password </label><br>
+  <input type="password" name="password" id="password"><br>
+  </div>
+    <button type="submit" class="btn btn-primary">Sign UP</button>
+</form>
+</div>
+{% endblock form %}

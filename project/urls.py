@@ -19,13 +19,18 @@ from django.conf import settings
 from django.contrib import admin
 from django.urls import path
 from school.views import home,contact,welcome
-from product.views import product
+from product.views import product,delete_product,update_product,login,signup
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home, name='home'),
     path('contact/', contact, name='contact'),
     path('welcome/', welcome, name='welcome'),
-    path('product/', product, name='product')
+    path('product/', product, name='product'),
+    path('delete_product/<int:id>', delete_product, name='delete_product'),
+    path('update_product/<int:id>', update_product, name='update_product'),
+    path('signup/', signup, name='signup'),
+    path('login/', login, name='login'),
+
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

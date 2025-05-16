@@ -1,7 +1,8 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block form %}
-<div class="form-section">
+<h3>Welcome {{request.session.username}}</h3>
+ <div class="form-section">
 <h2 class="try">Add Product</h2>
   <form method="POST" enctype="multipart/form-data">
     {% csrf_token %}
@@ -55,6 +56,9 @@
     <p class="card-text"><strong>Country:</strong> {{ product.country }}</p>   
     <p class="card-text"><strong>Create Date:</strong> {{ product.create_date }}</p> 
     <p class="card-text"><strong>Expire Date:</strong> {{ product.expire_date }}</p> 
+    <a href="{% url 'delete_product' product.id %}" class="btn btn-danger  me-2">Delete</a>
+    <br>
+    <a href="{% url 'update_product' product.id %}" class="btn btn-primary  ">Update</a>
   </div>
 </div>
 {% endfor %} 
