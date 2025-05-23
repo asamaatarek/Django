@@ -5,39 +5,9 @@
 <h2 class="try">update Product</h2>
   <form method="POST" enctype="multipart/form-data">
     {% csrf_token %}
-     <div class="form-group">
-  <label>Name </label>
-  <input type="text" name="name" id="name"  value="{{product.name}}">
-  </div>
-  <div class="form-group">
-  <label>Description </label><br>
-  <input type="text" name="description" id="description" value="{{product.description}}"><br>
-  </div>
-  <div class="form-group"><label>Price </label><br>
-  <input type="number" name="price" id="price"  value="{{product.price}}"><br>
-  </div>
-  <div class="form-group">
-   <label>Country </label><br>
-   <input type="text" name="country" id="country"  value="{{product.country}}"> </div>
-  <div class="form-group"><label>Create Date </label><br>
-  <input type="date" name="create_date" id="create_date"  value="{{product.create_date}}"><br>
-  </div>
-  <div class="form-group">
-    <label>Expire Date </label><br>
-    <input type="date" name="expire_date" id="expire_date" value="{{product.expire_date}}"><br>
-  </div>
-  <div class="form-group"><label>Image </label><br>
-   <input type="file" name="image" id="image" value="{{product.image}}"><br>
-  </div><div class="form-group">
-  <label>Category</label><br>
-  <select class="form-control form-control-lg" name="category" id="category"  value="{{product.category}}">
-    <option value="fruits">Fruits</option>
-    <option value="vegtables">Vegetables</option>
-    <option value="Dairy">Dairy</option>
-    <option value="baked goods">Baked Goods</option>
-  </select>
-</div>
-  <button type="submit" class="btn btn-primary">Update Product</button>
+    {{ form.as_p }}
+    {{ category_form.as_p }}
+    <button type="submit" class="btn btn-primary">Update Product</button>
 </form>
 </div>
 {% endblock form %}

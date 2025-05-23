@@ -1,6 +1,6 @@
 from django.db import models
 
-cat_product=[(('fruits'),('fruits')),(('vegtables'),('vegtables')),(('Dairy'),('Dairy')),(('baked goods'),('baked goods'))]
+cat_product=[(('fruits'),('fruits')),(('vegtables'),('vegtables')),(('Dairy'),('Dairy')),(('baked goods'),('baked goods')),(('x'),('x'))]
 
 class Category(models.Model):
     category=models.CharField(max_length=50,choices=cat_product)
@@ -15,7 +15,7 @@ class Product(models.Model):
     expire_date=models.DateField()
     country= models.CharField(max_length=50)
     price= models.DecimalField(max_digits=6, decimal_places=2)
-    category=models.ManyToManyField(Category)
+    category=models.ForeignKey(Category, on_delete=models.CASCADE, null=True)
 
     def __str__(self):
         return str(self.id)
